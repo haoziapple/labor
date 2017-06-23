@@ -42,6 +42,11 @@ public abstract class DirectoryUtil
 			System.out.println(createPrintStr(dirNameList[i], i));
 		}
 	}
+	
+	public static void main(String[] args)
+	{
+		printDir("C:\\Users\\Administrator\\Desktop\\51服务solr备份");
+	}
 
 	public static void readFile(String dirPath)
 	{

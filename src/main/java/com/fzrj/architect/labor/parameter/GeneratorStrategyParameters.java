@@ -1,13 +1,15 @@
 package com.fzrj.architect.labor.parameter;
 
 import com.fzrj.architect.labor.generate.strategy.GeneratorStrategy;
+import com.fzrj.architect.labor.generate.strategy.impl.ssm.SSMGeneratorStrategy;
+import com.fzrj.architect.labor.generate.strategy.impl.support.GeneratorStrategyFactory;
 
 public abstract class GeneratorStrategyParameters
 {
 	/**
 	 * default strategy
 	 */
-	final static GeneratorStrategy defaultGeneratorStrategy =null;// new SSMGeneratorStrategy();
+	final static GeneratorStrategy defaultGeneratorStrategy = new SSMGeneratorStrategy();
 
 	/**
 	 * customized strategy
@@ -16,8 +18,8 @@ public abstract class GeneratorStrategyParameters
 
 	public static void init()
 	{
-//		GeneratorStrategy generatorStrategy = GeneratorStrategyFactory
-//				.getInstance(UserInputParamters.getStrategy4genParam());
+		GeneratorStrategy generatorStrategy = GeneratorStrategyFactory
+				.getInstance(UserInputParamters.getStrategy4genParam());
 		if (generatorStrategy != null)
 			setGeneratorStrategy(generatorStrategy);
 	}

@@ -2,6 +2,7 @@ package com.fzrj.architect.labor.generate.strategy.impl.support;
 
 import java.util.List;
 
+import com.fzrj.architect.labor.generate.strategy.AbstractGeneratorStrategy;
 import com.fzrj.architect.labor.generate.strategy.GeneratorStrategy;
 import com.fzrj.architect.labor.parameter.EnableSupportUserInputPatamter;
 import com.fzrj.architect.labor.utils.ClassUtil;
@@ -15,7 +16,7 @@ public abstract class GeneratorStrategyFactory
 		if (StringUtil.isEmpty(s))
 			return null;
 
-		List<Class<?>> list = null;//ClassUtil.getAllAssignedClass(AbstractGeneratorStrategy.class);
+		List<Class<?>> list = ClassUtil.getAllAssignedClass(AbstractGeneratorStrategy.class);
 		for (Class<?> ec : list)
 		{
 			try

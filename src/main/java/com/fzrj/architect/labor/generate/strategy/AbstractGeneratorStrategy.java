@@ -34,10 +34,18 @@ import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 
+/**
+ * @className:com.fzrj.architect.labor.generate.strategy.AbstractGeneratorStrategy
+ * @description:代码生成策略公共父类
+ * @version:v1.0.0 
+ * @date:2017年6月23日 上午9:45:04
+ * @author:WangHao
+ */
 public abstract class AbstractGeneratorStrategy implements GeneratorStrategy, EnableSupportUserInputPatamter
 {
 	static Logger logger = LoggerFactory.getLogger(AbstractGeneratorStrategy.class);
 
+	// 根据表结构进行代码生成
 	@Override
 	public void execute()
 	{
@@ -95,7 +103,7 @@ public abstract class AbstractGeneratorStrategy implements GeneratorStrategy, En
 						File.separator));
 	}
 
-	// 获取所有模板文件
+	// get all template files
 	private EnableGeneratedFile[] getAllTemplateFilesByTemplatePath(String templatePath)
 	{
 		List<EnableGeneratedFile> enableGeneratedFileList = new ArrayList<EnableGeneratedFile>();

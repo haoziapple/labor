@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fzrj.architect.labor.parameter.DBSourceParameters;
+import com.fzrj.architect.labor.parameter.GeneratorStrategyParameters;
 import com.fzrj.architect.labor.parameter.TargetProjectParameters;
 import com.fzrj.architect.labor.parameter.TemplateParameters;
 import com.fzrj.architect.labor.parameter.UserInputParamters;
@@ -23,9 +24,9 @@ public class Generator
 		// Step 1.3
 		TemplateParameters.init();
 		// Step 1.4
-		// GeneratorStrategyParameters.init();
+		GeneratorStrategyParameters.init();
 		// Step 2
-		// GeneratorStrategyParameters.getGeneratorStrategy().execute();
+		GeneratorStrategyParameters.getGeneratorStrategy().execute();
 		// Step 3
 		printlnResult();
 	}
@@ -40,5 +41,30 @@ public class Generator
 		logger.info("@      Genarate Successfully !       @");
 		logger.info("@   Thank you for using Labor 1.0.0  @");
 		logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+	}
+
+	public static void main(String[] args) throws Exception
+	{
+		if (args == null || args.length == 0)
+		{
+			// setting demo paramters
+			String path = "F:\\myLaborProject";
+			String projectName = "test";
+			String dbHost = "10.108.26.11";
+			String dbPort = "3306";
+			String dbUser = "fz_aquatic_zf";
+			String dbPassword = "fuzhong2015";
+			String dbName = "fz_aquatic_zf";
+			String strategy = "ssm";
+			String packageName = "com.labor.test";
+			// generating
+			Generator.execute(UserInputParamters.genInputArgs(path, projectName, dbHost, dbPort, dbUser, dbPassword,
+					dbName, strategy, packageName));
+		}
+		else
+		{
+			// generating
+			Generator.execute(args);
+		}
 	}
 }

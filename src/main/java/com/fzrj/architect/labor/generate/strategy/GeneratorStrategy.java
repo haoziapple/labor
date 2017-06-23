@@ -11,7 +11,9 @@ public interface GeneratorStrategy
 {
 	boolean isNeedScript = true;
 
+	// 字符编码
 	String encoding = "utf-8";
 
+	// 执行生成
 	void execute();
 }
