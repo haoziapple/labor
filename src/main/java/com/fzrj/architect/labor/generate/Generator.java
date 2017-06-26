@@ -50,11 +50,19 @@ public class Generator
 			// setting demo paramters
 			String path = "F:\\myLaborProject";
 			String projectName = "test";
-			String dbHost = "10.108.26.11";
+			// bdm26934148.my3w.com
+			// 10.108.26.11
+			String dbHost = "bdm26934148.my3w.com";
 			String dbPort = "3306";
-			String dbUser = "fz_aquatic_zf";
-			String dbPassword = "fuzhong2015";
-			String dbName = "fz_aquatic_zf";
+			// bdm26934148
+			// fz_aquatic_zf
+			String dbUser = "bdm26934148";
+			// haozi1009
+			// fuzhong2015
+			String dbPassword = "haozi1009";
+			// bdm26934148_db
+			// fz_aquatic_zf
+			String dbName = "bdm26934148_db";
 			String strategy = "ssm";
 			String packageName = "com.labor.test";
 			// generating
