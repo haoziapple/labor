@@ -199,7 +199,7 @@
             $this.button('loading');
 
             $.ajax({
-                url: "build",
+                url: "/labor/build",
                 data: $('#detail').serialize(),
                 type:"post",
                 dataType:'text',
