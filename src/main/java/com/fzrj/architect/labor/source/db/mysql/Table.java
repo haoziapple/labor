@@ -8,22 +8,23 @@ import com.fzrj.architect.labor.utils.StringUtil;
 /**
  * @className:com.fzrj.architect.labor.source.db.mysql.Table
  * @description:表信息
- * @version:v1.0.0 
+ * @version:v1.0.0
  * @date:2017年6月22日 下午5:02:17
  * @author:WangHao
  */
 public class Table
 {
+	// 表原名--aquatic_all_price_info
 	private String name;
-
+	// 表名大写--AQUATIC_ALL_PRICE_INFO
 	private String upperName;
-
+	// 类名首字母大写--AquaticAllPriceInfo
 	private String upperFirstLetterName;
-
+	// 类名首字母小写--aquaticAllPriceInfo
 	private String lowerFirstLetterName;
-
+	// 包名
 	private String packageName;
-
+	// 字段列表
 	private List<Column> columns;
 
 	private String primaryKey;
@@ -50,19 +51,33 @@ public class Table
 
 	private Set<String> importPojos;
 
-	private String stringCarrayNames1;// "," append upper columns
+	// column名转换为属性名后，逗号拼接
+	// id, priceKey, shopKey..
+	private String stringCarrayNames1;
 
-	private String stringCarrayNames2;// int id ,String userCord ,..
+	// 属性名与属性类型拼接
+	// Integer id, String priceKey, String shopKey..
+	private String stringCarrayNames2;
 
-	private String stringCarrayNames3;// "," append columns
+	// column名逗号拼接,无id
+	// price_key, shop_key, goods_key..
+	private String stringCarrayNames3;
 
-	private String stringCarrayNames4;// "#%s#," append lower columns
+	// "#%s#,"格式,无id
+	// #{priceKey}, #{shopKey}, #{goodsKey}..
+	private String stringCarrayNames4;
 
-	private String stringCarrayNames5;// "%s=#%s#," append columns-lower columns
+	// "%s=#%s#,"格式，无id
+	// price_key=#{priceKey}, shop_key=#{shopKey}, goods_key=#{goodsKey}..
+	private String stringCarrayNames5;
 
-	private String stringCarrayNames6;// "%s=#%s#,"append columns-lower columns
+	// column名
+	// id, price_key, shop_key..
+	private String stringCarrayNames6;
 
-	private String stringCarrayNames7;// "%s=#%s#,"append columns-lower columns
+	// "%s as %s,"格式，含id
+	// id as id,price_key as priceKey,shop_key as shopKey..
+	private String stringCarrayNames7;
 
 	private String stringCarrayNames8;
 
@@ -406,5 +421,21 @@ public class Table
 	public void setSourceDbSchema(String sourceDbSchema)
 	{
 		this.sourceDbSchema = sourceDbSchema;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Table [name=" + name + ", upperName=" + upperName + ", upperFirstLetterName=" + upperFirstLetterName
+				+ ", lowerFirstLetterName=" + lowerFirstLetterName + ", packageName=" + packageName + ", columns="
+				+ columns + ", primaryKey=" + primaryKey + ", primaryKeyType=" + primaryKeyType
+				+ ", upperFirstLetterPrimaryKey=" + upperFirstLetterPrimaryKey + ", lowerFirstLetterPrimaryKey="
+				+ lowerFirstLetterPrimaryKey + ", tableIndexs=" + tableIndexs + ", tableBinds=" + tableBinds
+				+ ", importPojos=" + importPojos + ", stringCarrayNames1=" + stringCarrayNames1
+				+ ", stringCarrayNames2=" + stringCarrayNames2 + ", stringCarrayNames3=" + stringCarrayNames3
+				+ ", stringCarrayNames4=" + stringCarrayNames4 + ", stringCarrayNames5=" + stringCarrayNames5
+				+ ", stringCarrayNames6=" + stringCarrayNames6 + ", stringCarrayNames7=" + stringCarrayNames7
+				+ ", stringCarrayNames8=" + stringCarrayNames8 + ", allTablesName=" + allTablesName
+				+ ", sourceDbSchema=" + sourceDbSchema + "]";
 	}
 }

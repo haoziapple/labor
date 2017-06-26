@@ -30,8 +30,9 @@ public class ${upperFirstLetterName}Controller {
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public void save(@ModelAttribute ${upperFirstLetterName} ${lowerFirstLetterName}) {
+	public String save(@RequestBody ${upperFirstLetterName} ${lowerFirstLetterName}) {
 		${lowerFirstLetterName}Service.save(${lowerFirstLetterName});
+		return "{\"msg\":\"success\"}";
 	}
 
 	@RequestMapping(value = "/delete/{${primaryKey}}", method = RequestMethod.POST)
@@ -45,8 +46,9 @@ public class ${upperFirstLetterName}Controller {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public void update(@ModelAttribute ${upperFirstLetterName} ${lowerFirstLetterName}) {
+	public String update(@RequestBody ${upperFirstLetterName} ${lowerFirstLetterName}) {
 		${lowerFirstLetterName}Service.update(${lowerFirstLetterName});
+		return "{\"msg\":\"success\"}";
 	}
 
 	@RequestMapping(value = "/count", method = RequestMethod.GET)

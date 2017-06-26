@@ -16,7 +16,7 @@ public interface ${upperFirstLetterName}Mapper{
 	Integer count();
 
 
-	@Select("SELECT * FROM ${name} WHERE ${primaryKey} = ${"#"}{${primaryKey}} LIMIT 1 ")
+	@Select("SELECT ${stringCarrayNames7} FROM ${name} WHERE ${primaryKey} = ${"#"}{${primaryKey}} LIMIT 1 ")
 	${upperFirstLetterName} getBy${upperFirstLetterPrimaryKey}(@Param("${primaryKey}") ${primaryKeyType} ${primaryKey});
 
 
@@ -35,11 +35,11 @@ public interface ${upperFirstLetterName}Mapper{
 	Integer save(${upperFirstLetterName} ${lowerFirstLetterName});
 
 
-	@Select("SELECT * FROM ${name} LIMIT 10 ")
+	@Select("SELECT ${stringCarrayNames7} FROM ${name} LIMIT 10 ")
 	List<${upperFirstLetterName}> list();
 
 
-	@Select("SELECT * FROM ${name} LIMIT ${"#"}{start}, ${"#"}{step}")
+	@Select("SELECT ${stringCarrayNames7} FROM ${name} LIMIT ${"#"}{start}, ${"#"}{step}")
 	List<${upperFirstLetterName}> page(@Param("start") int start, @Param("step") int step );
 	
 }

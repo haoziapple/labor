@@ -70,7 +70,7 @@
                 <#if !columns[i].autoIncrement >
                     <div class="form-group">
                         <label for="input${columns[i].name}">${columns[i].name} <#if columns[i].remark!="">- ${columns[i].remark}</#if></label>
-                        <input type="text" class="form-control" id="input${columns[i].name}" name="${columns[i].name}" placeholder="${columns[i].name}" value="" />
+                        <input type="text" class="form-control" id="input${columns[i].name}" name="${columns[i].lowerFirstLetterName}" placeholder="${columns[i].name}" value="" />
                     </div>
                 </#if>
             </#list>
@@ -162,12 +162,26 @@
         $("#submit").click(function(){
             var $this = $(this);
             $this.button('loading');
+            
+            var jsonData = {};
+			$("#detail").serializeArray().map(function(x){
+				if (jsonData[x.name] !== undefined) {
+        			if (!jsonData[x.name].push) {
+            			jsonData[x.name] = [jsonData[x.name]];
+        			}
+        			jsonData[x.name].push(x.value || '');
+    			} else {
+        			jsonData[x.name] = x.value || '';
+   		 		}
+			});
 
             $.ajax({
                 url: "../../../${lowerFirstLetterName}/save/",
-                data: $('#detail').serialize(),
-                type:"post",
-                dataType:'text',
+                data: JSON.stringify(jsonData),
+                type: 'POST',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                cache : false,
 
                 success: function(msg){
                     createFlag = true;

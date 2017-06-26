@@ -49,7 +49,7 @@ public class Generator
 		{
 			// setting demo paramters
 			String path = "F:\\myLaborProject";
-			String projectName = "test";
+			String projectName = "test1";
 			// bdm26934148.my3w.com
 			// 10.108.26.11
 			String dbHost = "bdm26934148.my3w.com";

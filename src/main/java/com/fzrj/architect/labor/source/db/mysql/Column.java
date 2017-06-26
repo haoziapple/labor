@@ -80,4 +80,12 @@ public class Column
 	{
 		this.autoIncrement = autoIncrement;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Column [name=" + name + ", upperFirstLetterName=" + upperFirstLetterName + ", lowerFirstLetterName="
+				+ lowerFirstLetterName + ", type=" + type + ", remark=" + remark + ", autoIncrement=" + autoIncrement
+				+ "]";
+	}
 }

@@ -71,7 +71,7 @@
                     <label for="input${columns[i].name}">${columns[i].name} <#if columns[i]
                     .remark!="">- ${columns[i]
             .remark}</#if></label>
-                    <input <#if columns[i].name== primaryKey >readonly</#if> type="text" class="form-control" id="input${columns[i].name}" name="${columns[i].name}" placeholder="${columns[i].name}" value="${r'<#if row.'}${columns[i].name}${r'??>${row.'}${columns[i].name}<#if columns[i].type?index_of("Integer") gt -1 || columns[i].type?index_of("Long") gt -1 >${r'?c}</#if>'}<#elseif columns[i].type?index_of("Date") gt -1>${r'?date}</#if>'}<#else>${r'}</#if>'}</#if>">
+                    <input <#if columns[i].name== primaryKey >readonly</#if> type="text" class="form-control" id="input${columns[i].name}" name="${columns[i].lowerFirstLetterName}" placeholder="${columns[i].name}" value="${r'<#if row.'}${columns[i].lowerFirstLetterName}${r'??>${row.'}${columns[i].lowerFirstLetterName}<#if columns[i].type?index_of("Integer") gt -1 || columns[i].type?index_of("Long") gt -1 >${r'?c}</#if>'}<#elseif columns[i].type?index_of("Date") gt -1>${r'?date}</#if>'}<#else>${r'}</#if>'}</#if>">
                 </div>
             </#list>
             ${r'</#escape>'}
@@ -165,12 +165,26 @@
         $("#submit").click(function(){
             var $this = $(this);
             $this.button('loading');
+            
+            var jsonData = {};
+			$("#detail").serializeArray().map(function(x){
+				if (jsonData[x.name] !== undefined) {
+        			if (!jsonData[x.name].push) {
+            			jsonData[x.name] = [jsonData[x.name]];
+        			}
+        			jsonData[x.name].push(x.value || '');
+    			} else {
+        			jsonData[x.name] = x.value || '';
+   		 		}
+			});
 
             $.ajax({
                 url: "../../../${lowerFirstLetterName}/update/",
-                data: $('#detail').serialize(),
-                type:"post",
-                dataType:'text',
+                data: JSON.stringify(jsonData),
+                type: 'POST',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                cache : false,
 
                 success: function(msg){
                     $('#messageTitle').html("结果");

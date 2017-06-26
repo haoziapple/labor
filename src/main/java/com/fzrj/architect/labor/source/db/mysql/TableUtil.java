@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fzrj.architect.labor.parameter.DBSourceParameters;
 import com.fzrj.architect.labor.target.JavaType;
@@ -31,6 +33,9 @@ import com.fzrj.architect.labor.utils.StringUtil;
 @SuppressWarnings("unchecked")
 public abstract class TableUtil
 {
+	private static final Logger logger = LoggerFactory.getLogger(TableUtil.class);
+
+	@SuppressWarnings("rawtypes")
 	public static final List<String> getTableNames(Connection conn, String... tableNames) throws SQLException
 	{
 
@@ -116,6 +121,7 @@ public abstract class TableUtil
 		return map;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static final List<Map> resToList(ResultSet resultSets) throws SQLException
 	{
 		List<Map> list = new ArrayList<Map>();
@@ -126,6 +132,7 @@ public abstract class TableUtil
 		return list;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static final List<Map> resToList(List<ResultSet> resultSets) throws SQLException
 	{
 		List<Map> list = new ArrayList<Map>();
@@ -139,6 +146,7 @@ public abstract class TableUtil
 		return list;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static final Map resToMap(ResultSet rs) throws SQLException
 	{
 		Map map = new HashMap();
@@ -232,7 +240,9 @@ public abstract class TableUtil
 
 		for (String tableName : tabelNames)
 		{
+			// 首字母大写的类名--AquaticAllPriceInfo
 			String className_d = StringUtil.upperFirst(PinYinUtil.getFirstSpell(StringUtil.newTableName(tableName)));
+			// 首字母小写的类名--aquaticAllPriceInfo
 			String className_x = StringUtil.lowerFirst(PinYinUtil.getFirstSpell(StringUtil.newTableName(tableName)));
 			List<TableIndex> tableIndexs = getTableIndexs(conn, tableName);
 			List<TableBind> tableBinds = getTableBinds(conn, tableName);
@@ -294,26 +304,22 @@ public abstract class TableUtil
 					stringCarrayNames4 += String.format("#{%s}", column.getLowerFirstLetterName());
 				}
 				if (!column.isAutoIncrement())
-				{ // 如果是主键，不需要在 insert 语句中 (Mabatis)
-					stringCarrayNames5 += String.format("%s=#{%s}", column.getName(), column.getName());
+				{ // 如果是主键，不需要在 update 语句中 (Mabatis)
+					stringCarrayNames5 += String.format("%s=#{%s}", column.getName(), column.getLowerFirstLetterName());
 				}
 
-				if (!column.getName().equals("ID") && !column.getName().equals("id"))
+				if (!"".endsWith(stringCarrayNames6))
 				{
-
-					if (!"".endsWith(stringCarrayNames6))
-					{
-						stringCarrayNames6 += ", ";
-					}
-
-					if (!"".endsWith(stringCarrayNames7))
-					{
-						stringCarrayNames7 += ", ";
-					}
-					stringCarrayNames6 += column.getName();
-
-					stringCarrayNames7 += String.format("#{%s}", column.getLowerFirstLetterName());
+					stringCarrayNames6 += ", ";
 				}
+
+				if (!"".endsWith(stringCarrayNames7))
+				{
+					stringCarrayNames7 += ", ";
+				}
+				stringCarrayNames6 += column.getName();
+
+				stringCarrayNames7 += String.format("%s as %s", column.getName(), column.getLowerFirstLetterName());
 			}
 
 			table = new Table(tableName, className_d, className_x, packageName, columns, tableIndexs, tableBinds,
@@ -357,6 +363,7 @@ public abstract class TableUtil
 				table.setStringCarrayNames8(stringCarrayNames8);
 			}
 
+			logger.info("生成表对应实例:{}", table);
 			tables.add(table);
 		}
 
@@ -424,6 +431,7 @@ public abstract class TableUtil
 		return columns;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static final List<TableIndex> getTableIndexs(Connection conn, String tableName) throws Exception
 	{
 		List<Map> indexs = getIndexs(conn, tableName, false);
