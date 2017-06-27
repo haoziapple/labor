@@ -47,16 +47,16 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="home">
                     <div class="inner cover">
-                        <h1 class="cover-heading">Labor - 构建工具</h1>
-                        <p class="lead">轻松、简单、快速，帮您踏出第一步的工具</p>
-                        <p class="lead">透过数据库的结构，自动生成项目，帮您略过繁杂且重复的动作！</p>
+                        <h1 class="cover-heading">Labor - 代码生成工具</h1>
+                        <p class="lead">轻松、简单、快速，帮您快速生成项目</p>
+                        <p class="lead">透过数据库的结构，自动生成项目，消灭CRUD程序员！</p>
                         <p class="lead">目前提供框架</p>
                         <br>
 
                         <ul class="text-left">
                             <li>Spring + SpringMVC + MyBatis</li>
-                            <li>Spring + SpringMVC + SpringJdbcTemplate</li>
-                            <li>Spring + SpringMVC + Jooq</li>
+                            <!--<li>Spring + SpringMVC + SpringJdbcTemplate</li>-->
+                            <!--<li>Spring + SpringMVC + Jooq</li>-->
                         </ul>
                         <br>
                         <br>
@@ -80,29 +80,29 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="dbset">
                                     <div class="form-group">
+                                    	<p class="text-left help-white">数据库地址</p>
                                         <label for="inputDBHost" class="sr-only">host</label>
                                         <input type="text" id="inputDBHost" name="host" class="form-control" placeholder="Host" value="localhost" required autofocus>
-                                        <p class="text-left help-white">数据库地址</p>
                                     </div>
                                     <div class="form-group">
+                                    	<p class="text-left help-white">数据库Port</p>
                                         <label for="inputDBPort" class="sr-only">port</label>
                                         <input type="number" id="inputDBPort" name="port" class="form-control" placeholder="Port" required value="3306">
-                                        <p class="text-left help-white">数据库Port</p>
                                     </div>
                                     <div class="form-group">
+                                    	<p class="text-left help-white">数据库使用者</p>
                                         <label for="inputDBUsername" class="sr-only">username</label>
                                         <input type="text" id="inputDBUsername" name="username" class="form-control" placeholder="Username" required value="root">
-                                        <p class="text-left help-white">数据库使用者</p>
                                     </div>
                                     <div class="form-group">
+                                    	<p class="text-left help-white">数据库密码</p>
                                         <label for="inputDBPassword" class="sr-only">password</label>
                                         <input type="text" id="inputDBPassword" name="password" class="form-control" placeholder="Password" required>
-                                        <p class="text-left help-white">数据库密码</p>
                                     </div>
                                     <div class="form-group">
+                                    	<p class="text-left help-white">数据库名</p>
                                         <label for="inputDBSchema" class="sr-only">schema</label>
                                         <input type="text" id="inputDBSchema" name="schema" class="form-control" placeholder="Database Schema" required>
-                                        <p class="text-left help-white">数据库名</p>
                                     </div>
 
                                     <button type="button" id="next" class="btn btn-default btn-lg" data-toggle="tab">Next</button>
@@ -110,28 +110,28 @@
 
                                 <div class="tab-pane fade" id="projextset">
                                     <div class="form-group">
+                                    	<p class="text-left help-white">项目名称</p>
                                         <label for="inputProjectname" class="sr-only">projectName</label>
                                         <input type="text" id="inputProjectname" name="projectName" class="form-control" placeholder="generated-sources-by-Labor" required>
-                                        <p class="text-left help-white">项目名称</p>
                                     </div>
                                     <div class="form-group">
+                                    	<p class="text-left help-white">项目包名</p>
                                         <label for="inputPackage" class="sr-only">packageName</label>
                                         <input type="text" id="inputPackage" name="packageName" class="form-control" placeholder="com.Labor.generated" required>
-                                        <p class="text-left help-white">项目包名</p>
                                     </div>
-                                    <div class="form-group">
+                                    <!--<div class="form-group">
+                                    	<p class="text-left help-white">生成目标地址 如:/Users/Chihche/Documents/Project</p>
                                         <label for="inputPath" class="sr-only">path</label>
                                         <input type="text" id="inputPath" name="path" class="form-control" placeholder="Path" required>
-                                        <p class="text-left help-white">生成目标地址 如:/Users/Chihche/Documents/Project</p>
-                                    </div>
+                                    </div>-->
                                     <div class="form-group">
+                                    	<p class="text-left help-white">生成模式</p>
                                         <label for="inputStrategy" class="sr-only">strategy</label>
                                         <select class="form-control" id="inputStrategy" name="strategy">
                                             <option value="ssm">Spring + SpringMVC + MyBatis</option>
-                                            <option value="sss">Spring + SpringMVC + SpringJdbcTemplate</option>
-                                            <option value="ssj">Spring + SpringMVC + Jooq</option>
+                                            <!--<option value="sss">Spring + SpringMVC + SpringJdbcTemplate</option>-->
+                                            <!--<option value="ssj">Spring + SpringMVC + Jooq</option>-->
                                         </select>
-                                        <p class="text-left help-white">生成模式</p>
                                     </div>
 
                                     <button type="button" id="submit" class="btn btn-default btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin'></i> 请稍等..">送出</button>
@@ -144,8 +144,8 @@
                 <div class="tab-pane fade" id="about">
                     <div class="inner cover">
                         <h1 class="cover-heading">About</h1>
-                        <p class="lead">轻松、简单、快速，帮您踏出第一步的工具</p>
-                        <p class="lead">透过数据库的结构，自动生成项目，帮您略过繁杂且重复的动作！</p>
+                        <p class="lead">轻松、简单、快速，帮您快速生成项目</p>
+                        <p class="lead">透过数据库的结构，自动生成项目，消灭CRUD程序员！</p>
                     </div>
                 </div>
             </div>
@@ -177,6 +177,11 @@
         </div>
     </div>
 </div>
+
+<form method="GET" action="/download" style="display: none">
+     	<input type="hidden" id = "download"  name = "fileName"/>
+     	<button type="submit" id = "downloadSubmit">下载 </button>
+</form>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -210,6 +215,8 @@
                         $("#messageText").html("完成<br>"+obj.msg);
                         $('#messageModal').modal('toggle');
                     }
+                    $("#download").val($("#inputProjectname").val()+".zip");
+	        		$("#downloadSubmit").click();
                     $this.button('reset');
                 },
                 error:function(xhr, ajaxOptions, thrownError){

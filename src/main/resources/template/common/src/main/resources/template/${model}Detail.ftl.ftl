@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game Detail</title>
+    <title>${name} Detail</title>
     <link href="../../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../../css/dashboard.css" rel="stylesheet">
     <link href="../../../css/jsoneditor.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                     <label for="input${columns[i].name}">${columns[i].name} <#if columns[i]
                     .remark!="">- ${columns[i]
             .remark}</#if></label>
-                    <input <#if columns[i].name== primaryKey >readonly</#if> type="text" class="form-control" id="input${columns[i].name}" name="${columns[i].lowerFirstLetterName}" placeholder="${columns[i].name}" value="${r'<#if row.'}${columns[i].lowerFirstLetterName}${r'??>${row.'}${columns[i].lowerFirstLetterName}<#if columns[i].type?index_of("Integer") gt -1 || columns[i].type?index_of("Long") gt -1 >${r'?c}</#if>'}<#elseif columns[i].type?index_of("Date") gt -1>${r'?date}</#if>'}<#else>${r'}</#if>'}</#if>">
+                    <input <#if columns[i].name== primaryKey >readonly</#if> type="text" class="form-control" id="input${columns[i].name}" name="${columns[i].lowerFirstLetterName}" placeholder="${columns[i].name}" value="${r'<#if row.'}${columns[i].lowerFirstLetterName}${r'??>${row.'}${columns[i].lowerFirstLetterName}<#if columns[i].type?index_of("Integer") gt -1 || columns[i].type?index_of("Long") gt -1 >${r'?c}</#if>'}<#elseif columns[i].type?index_of("Date") gt -1>${r'?datetime}</#if>'}<#else>${r'}</#if>'}</#if>">
                 </div>
             </#list>
             ${r'</#escape>'}

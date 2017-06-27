@@ -170,23 +170,23 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>timestamp-property</id>
-                        <goals>
-                            <goal>timestamp-property</goal>
-                        </goals>
-                        <configuration>
-                            <name>current.time</name>
-                            <pattern>yyyyMMddHHmmss</pattern>
-                            <timeZone>GMT+8</timeZone>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--             <plugin> -->
+<!--                 <groupId>org.codehaus.mojo</groupId> -->
+<!--                 <artifactId>build-helper-maven-plugin</artifactId> -->
+<!--                 <executions> -->
+<!--                     <execution> -->
+<!--                         <id>timestamp-property</id> -->
+<!--                         <goals> -->
+<!--                             <goal>timestamp-property</goal> -->
+<!--                         </goals> -->
+<!--                         <configuration> -->
+<!--                             <name>current.time</name> -->
+<!--                             <pattern>yyyyMMddHHmmss</pattern> -->
+<!--                             <timeZone>GMT+8</timeZone> -->
+<!--                         </configuration> -->
+<!--                     </execution> -->
+<!--                 </executions> -->
+<!--             </plugin> -->
 
 
             <plugin>

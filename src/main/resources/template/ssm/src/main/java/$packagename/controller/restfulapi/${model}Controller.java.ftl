@@ -24,11 +24,6 @@ public class ${upperFirstLetterName}Controller {
 	@Autowired
 	private ${upperFirstLetterName}Service ${lowerFirstLetterName}Service;
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test(@ModelAttribute ${upperFirstLetterName} ${lowerFirstLetterName}) {
-		return "success";
-	}
-
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@RequestBody ${upperFirstLetterName} ${lowerFirstLetterName}) {
 		${lowerFirstLetterName}Service.save(${lowerFirstLetterName});

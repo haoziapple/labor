@@ -8,6 +8,7 @@ import com.fzrj.architect.labor.parameter.GeneratorStrategyParameters;
 import com.fzrj.architect.labor.parameter.TargetProjectParameters;
 import com.fzrj.architect.labor.parameter.TemplateParameters;
 import com.fzrj.architect.labor.parameter.UserInputParamters;
+import com.fzrj.architect.labor.utils.DirectoryUtil;
 
 public class Generator
 {
@@ -33,9 +34,8 @@ public class Generator
 
 	private static void printlnResult()
 	{
-		// logger.info("\nTarget project directory is : " +
-		// TargetProjectParameters.getTargetProjectStorePath());
-		// DirectoryUtil.readFile(TargetProjectParameters.getTargetProjectStorePath());
+		logger.info("\nTarget project directory is : " + TargetProjectParameters.getTargetProjectStorePath());
+		DirectoryUtil.readFile(TargetProjectParameters.getTargetProjectStorePath());
 		logger.info("\n\n");
 		logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		logger.info("@      Genarate Successfully !       @");

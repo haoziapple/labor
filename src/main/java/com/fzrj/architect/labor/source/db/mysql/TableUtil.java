@@ -101,6 +101,7 @@ public abstract class TableUtil
 		return remark;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static final List<Map> getIndexs(Connection conn, String tableName, boolean unique) throws SQLException
 	{
 		DatabaseMetaData dmd = conn.getMetaData();
@@ -108,6 +109,7 @@ public abstract class TableUtil
 		return resToList(rs);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static final Map getBinds(Connection conn, String tableName) throws Exception
 	{
 		DatabaseMetaData dmd = conn.getMetaData();
@@ -363,7 +365,6 @@ public abstract class TableUtil
 				table.setStringCarrayNames8(stringCarrayNames8);
 			}
 
-			logger.info("生成表对应实例:{}", table);
 			tables.add(table);
 		}
 

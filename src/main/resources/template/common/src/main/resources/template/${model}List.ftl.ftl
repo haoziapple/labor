@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game List</title>
+    <title>${name} List</title>
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/dashboard.css" rel="stylesheet">
 </head>
@@ -75,7 +75,7 @@
                     ${r'<#list rows as row>'}
                     <tr>
                         <#list 0..columns?size-1 as i>
-                            <td <#if columns[i].name == primaryKey >name="id"</#if>>${r'<#if row.'}${columns[i].lowerFirstLetterName}${r'??>${row.'}${columns[i].lowerFirstLetterName}<#if columns[i].type?index_of("Integer") gt -1 >${r'?c}</#if>'}<#elseif columns[i].type?index_of("Date") gt -1>${r'?date}</#if>'}<#else>${r'}</#if>'}</#if></td>
+                            <td <#if columns[i].name == primaryKey >name="id"</#if>>${r'<#if row.'}${columns[i].lowerFirstLetterName}${r'??>${row.'}${columns[i].lowerFirstLetterName}<#if columns[i].type?index_of("Integer") gt -1 >${r'?c}</#if>'}<#elseif columns[i].type?index_of("Date") gt -1>${r'?datetime}</#if>'}<#else>${r'}</#if>'}</#if></td>
                         </#list>
                             <td><a href="detail/${r'${row.'}${columns[0].lowerFirstLetterName}${r'?c}'}" class="btn btn-primary" role="button">Detail</a></td>
                     </tr>

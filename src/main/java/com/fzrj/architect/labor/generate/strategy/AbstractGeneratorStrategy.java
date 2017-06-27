@@ -266,6 +266,7 @@ public abstract class AbstractGeneratorStrategy implements GeneratorStrategy, En
 	 * @param targetFileAbsoluteDir
 	 * @param targetFileName
 	 */
+	@SuppressWarnings("deprecation")
 	private void gen(Object templateData, String templateFileRelativeDir, String templateFileName,
 			String targetFileAbsoluteDir, String targetFileName)
 	{

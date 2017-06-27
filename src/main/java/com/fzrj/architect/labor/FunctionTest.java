@@ -1,5 +1,7 @@
 package com.fzrj.architect.labor;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Properties;
@@ -11,7 +13,7 @@ public class FunctionTest
 	{
 		System.out.println(System.getenv());
 	}
-	
+
 	// 获取系统prop
 	public static void getProps()
 	{
@@ -23,15 +25,23 @@ public class FunctionTest
 			System.out.println(ent.getKey() + ":" + ent.getValue());
 		}
 	}
-	
+
 	// 获取工作目录
 	public static void getWorkDir()
 	{
 		System.out.println(System.getProperty("user.dir"));
 	}
-	
+
+	public static void dateFormat()
+	{
+		Date date = new Date();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+		String str = df.format(date);
+		System.out.println(str);
+	}
+
 	public static void main(String[] args)
 	{
-		getWorkDir();
+		dateFormat();
 	}
 }

@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Primary;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import javax.annotation.Generated;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Generated(
     value = {
@@ -27,6 +28,9 @@ import javax.annotation.Generated;
 public class DB {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
+    
+    // 设置mapper文件扫描路径
+    private final String MAPPER_XML = "classpath:mapper/**/*Mapper.xml";
 
     @Autowired
     private DBConfig dbConfig;
@@ -51,6 +55,8 @@ public class DB {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setTypeAliasesPackage("${packageName}.model");
+        //sessionFactory.setMapperLocations(
+		//		new PathMatchingResourcePatternResolver().getResources(MAPPER_XML));
         return sessionFactory.getObject();
     }
 
