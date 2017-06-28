@@ -56,7 +56,6 @@ public class Application
 		{
 			System.out.println(beanName);
 		}
-
 	}
 
 	@RequestMapping("/gen")
