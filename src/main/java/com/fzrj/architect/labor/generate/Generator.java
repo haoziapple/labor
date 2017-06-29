@@ -37,10 +37,8 @@ public class Generator
 		logger.info("\nTarget project directory is : " + TargetProjectParameters.getTargetProjectStorePath());
 		DirectoryUtil.readFile(TargetProjectParameters.getTargetProjectStorePath());
 		logger.info("\n\n");
-		logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		logger.info("@      Genarate Successfully !       @");
 		logger.info("@   Thank you for using Labor 1.0.0  @");
-		logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 	}
 
 	public static void main(String[] args) throws Exception
