@@ -152,7 +152,7 @@
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Labor Build Tool 2016</p>
+                    <p>Labor Build Tool 2017</p>
                     <p>V1.0.0 (Beta)</p>
                 </div>
             </div>

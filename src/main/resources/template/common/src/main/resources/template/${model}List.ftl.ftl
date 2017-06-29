@@ -77,7 +77,7 @@
                         <#list 0..columns?size-1 as i>
                             <td <#if columns[i].name == primaryKey >name="id"</#if>>${r'<#if row.'}${columns[i].lowerFirstLetterName}${r'??>${row.'}${columns[i].lowerFirstLetterName}<#if columns[i].type?index_of("Integer") gt -1 >${r'?c}</#if>'}<#elseif columns[i].type?index_of("Date") gt -1>${r'?datetime}</#if>'}<#else>${r'}</#if>'}</#if></td>
                         </#list>
-                            <td><a href="detail/${r'${row.'}${columns[0].lowerFirstLetterName}<#if columns[0].type?index_of("Integer") gt -1 || columns[0].type?index_of("Long") gt -1 >${r'?c}'}<#else>${r'}'}</#if>}" class="btn btn-primary" role="button">Detail</a></td>
+                            <td><a href="detail/${r'${row.'}${columns[0].lowerFirstLetterName}<#if columns[0].type?index_of("Integer") gt -1 || columns[0].type?index_of("Long") gt -1 >${r'?c}'}<#else>${r'}'}</#if>" class="btn btn-primary" role="button">Detail</a></td>
                     </tr>
                     ${r'</#list>'}
                     </tbody>
