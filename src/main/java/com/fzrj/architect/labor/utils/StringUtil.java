@@ -37,7 +37,7 @@ public abstract class StringUtil
 		StringBuilder sb = new StringBuilder("");
 		for (String st : strS)
 		{
-			sb.append(StringUtil.upperFirst(st));
+			sb.append(StringUtil.upperFirst(st.toLowerCase()));
 		}
 		return sb.toString();
 	}
