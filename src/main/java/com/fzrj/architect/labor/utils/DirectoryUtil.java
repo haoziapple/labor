@@ -18,6 +18,13 @@ import java.util.zip.ZipInputStream;
 import com.fzrj.architect.labor.Application;
 import com.google.common.io.CharStreams;
 
+/**
+ * @className:com.fzrj.architect.labor.utils.DirectoryUtil
+ * @description:文件夹工具类
+ * @version:v1.0.0 
+ * @date:2017年6月30日 上午9:32:11
+ * @author:WangHao
+ */
 public abstract class DirectoryUtil
 {
 	private static int fileLevel;

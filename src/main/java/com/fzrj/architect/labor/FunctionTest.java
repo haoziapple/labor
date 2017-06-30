@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Properties;
 
+import com.fzrj.architect.labor.utils.PinYinUtil;
+
 public class FunctionTest
 {
 	// 获取系统env
@@ -42,6 +44,7 @@ public class FunctionTest
 
 	public static void main(String[] args)
 	{
-		dateFormat();
+		System.out.println(PinYinUtil.getFullSpell("王昊"));
+		System.out.println(PinYinUtil.getFirstSpell("王昊"));
 	}
 }

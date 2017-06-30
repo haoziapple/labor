@@ -1,5 +1,12 @@
 package com.fzrj.architect.labor;
 
+/**
+ * @className:com.fzrj.architect.labor.GenRsp
+ * @description:生成请求返回
+ * @version:v1.0.0 
+ * @date:2017年6月30日 上午9:04:55
+ * @author:WangHao
+ */
 public class GenRsp
 {
 	private int code = 1;

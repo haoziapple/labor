@@ -12,6 +12,13 @@ import com.fzrj.architect.labor.generate.strategy.AbstractGeneratorStrategy;
 import com.fzrj.architect.labor.generate.strategy.GeneratorStrategy;
 import com.fzrj.architect.labor.parameter.EnableSupportUserInputPatamter;
 
+/**
+ * @className:com.fzrj.architect.labor.utils.ClassUtil
+ * @description:java类工具
+ * @version:v1.0.0
+ * @date:2017年6月30日 上午9:39:36
+ * @author:WangHao
+ */
 public abstract class ClassUtil
 {
 	static Logger logger = LoggerFactory.getLogger(ClassUtil.class);

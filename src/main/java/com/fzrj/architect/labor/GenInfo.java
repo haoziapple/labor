@@ -1,5 +1,12 @@
 package com.fzrj.architect.labor;
 
+/**
+ * @className:com.fzrj.architect.labor.GenInfo
+ * @description:生成参数信息
+ * @version:v1.0.0
+ * @date:2017年6月30日 上午8:58:48
+ * @author:WangHao
+ */
 public class GenInfo
 {
 	private String host;

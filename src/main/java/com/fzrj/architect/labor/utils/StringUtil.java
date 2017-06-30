@@ -1,5 +1,12 @@
 package com.fzrj.architect.labor.utils;
 
+/**
+ * @className:com.fzrj.architect.labor.utils.StringUtil
+ * @description:字符串工具类
+ * @version:v1.0.0 
+ * @date:2017年6月30日 上午9:19:26
+ * @author:WangHao
+ */
 public abstract class StringUtil
 {
 	public static boolean isEmpty(String s)

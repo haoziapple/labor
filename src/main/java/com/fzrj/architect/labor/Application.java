@@ -1,14 +1,8 @@
 package com.fzrj.architect.labor;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -39,12 +33,12 @@ import com.fzrj.architect.labor.utils.ZipUtil;
 public class Application
 {
 	private static final String PATH = "/home/labor_generated";
-//	private static final String PATH = "F:\\myLaborProject";
-	
+	// private static final String PATH = "F:\\myLaborProject";
+
 	private static final String STRATEGY = "ssm";
 
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
-	
+
 	private static final Object locker = new Object();
 
 	public static void main(String[] args)
@@ -71,19 +65,15 @@ public class Application
 	{
 		System.out.println(genInfo);
 
+		// 添加锁，暂时不支持多线程
 		synchronized (locker)
 		{
-			Generator.execute(UserInputParamters.genInputArgs(
-					PATH, 
-					genInfo.getProjectName(), 
-					genInfo.getHost(), 
-					genInfo.getPort(),
-					genInfo.getUsername(),
-					genInfo.getPassword(),
-					genInfo.getSchema(),
-					STRATEGY,
+			Generator.execute(UserInputParamters.genInputArgs(PATH, genInfo.getProjectName(), genInfo.getHost(),
+					genInfo.getPort(), genInfo.getUsername(), genInfo.getPassword(), genInfo.getSchema(), STRATEGY,
 					genInfo.getPackageName()));
 		}
+
+		// 压缩已经生成好的文件
 		ZipUtil.ZipMultiFile(PATH + File.separator + genInfo.getProjectName(),
 				PATH + File.separator + genInfo.getProjectName());
 		return new GenRsp();

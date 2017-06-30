@@ -10,6 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @className:com.fzrj.architect.labor.utils.DownloadUtil
+ * @description:下载工具类
+ * @version:v1.0.0
+ * @date:2017年6月30日 上午9:22:27
+ * @author:WangHao
+ */
 public class DownloadUtil
 {
 	private static final Logger log = LoggerFactory.getLogger(DownloadUtil.class);
