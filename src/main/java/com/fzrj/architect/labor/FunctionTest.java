@@ -42,9 +42,22 @@ public class FunctionTest
 		System.out.println(str);
 	}
 
+	// 比指定整数小的最大的2^N值
+	public static int highestOneBit(int i)
+	{
+		i |= (i >> 1);
+		i |= (i >> 2);
+		i |= (i >> 4);
+		i |= (i >> 8);
+		i |= (i >> 16);
+		return i - (i >>> 1);
+	}
+
 	public static void main(String[] args)
 	{
-		System.out.println(PinYinUtil.getFullSpell("王昊"));
-		System.out.println(PinYinUtil.getFirstSpell("王昊"));
+		// System.out.println(PinYinUtil.getFullSpell("王昊"));
+		// System.out.println(PinYinUtil.getFirstSpell("王昊"));
+
+		System.out.println(29 >>> 1);
 	}
 }
