@@ -53,11 +53,33 @@ public class FunctionTest
 		return i - (i >>> 1);
 	}
 
+	public static void doSomethingWhichThrowsException()
+	{
+		try
+		{
+			throw new RuntimeException();
+		}
+		finally
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				if (3 == i)
+				{
+					break;
+				}
+			}
+			return;
+		}
+	}
+
 	public static void main(String[] args)
 	{
 		// System.out.println(PinYinUtil.getFullSpell("王昊"));
 		// System.out.println(PinYinUtil.getFirstSpell("王昊"));
 
-		System.out.println(29 >>> 1);
+		// System.out.println(29 >>> 1);
+		
+		doSomethingWhichThrowsException();
+		System.out.println("ok");
 	}
 }
