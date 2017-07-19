@@ -53,11 +53,50 @@ public class FunctionTest
 		return i - (i >>> 1);
 	}
 
+	public static void testInterrupt()
+	{
+		Thread t = new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				while (true)
+				{
+					try
+					{
+						Thread.sleep(5000L);
+						System.out.println("run once");
+					}
+					catch (InterruptedException e)
+					{
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		t.start();
+
+		try
+		{
+			Thread.sleep(11000L);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		t.interrupt();
+	}
+
 	public static void doSomethingWhichThrowsException()
 	{
 		try
 		{
-			throw new RuntimeException();
+			throw new RuntimeException("try block exception");
+		}
+		catch (Exception e)
+		{
+			System.out.println("catch exception");
+			throw new RuntimeException("catch block exception");
 		}
 		finally
 		{
@@ -71,15 +110,31 @@ public class FunctionTest
 			return;
 		}
 	}
+	
+	public static void testString()
+	{
+		String t = new String("^01|0102\\");
+		System.out.println(t);
+	}
 
 	public static void main(String[] args)
 	{
+		// 测试拼音工具类
 		// System.out.println(PinYinUtil.getFullSpell("王昊"));
 		// System.out.println(PinYinUtil.getFirstSpell("王昊"));
 
+		// 测试无符号右移
 		// System.out.println(29 >>> 1);
+
+		// 测试finally块中抛出异常或return
+		// doSomethingWhichThrowsException();
+		// System.out.println("ok");
+
+		// testInterrupt();
+
+		// String newString = String.format("%04d", 5);
+		// System.out.println(newString = newString + 1);
 		
-		doSomethingWhichThrowsException();
-		System.out.println("ok");
+		testString();
 	}
 }
