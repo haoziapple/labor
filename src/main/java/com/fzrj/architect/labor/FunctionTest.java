@@ -1,12 +1,12 @@
 package com.fzrj.architect.labor;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Properties;
-
-import com.fzrj.architect.labor.utils.PinYinUtil;
 
 public class FunctionTest
 {
@@ -132,7 +132,23 @@ public class FunctionTest
 		System.out.println("i6 == i7: " + (i6 == i7));
 	}
 
-	public static void main(String[] args)
+	public static void testListRemove()
+	{
+		List<String> a = new ArrayList<String>();
+		a.add("1");
+		a.add("2");
+		a.add("3");
+		for (String temp : a)
+		{
+			if ("2".equals(temp))
+			{
+				a.remove(temp);
+			}
+		}
+		System.out.println(a);
+	}
+
+	 public static void main(String[] args)
 	{
 		// 测试拼音工具类
 		// System.out.println(PinYinUtil.getFullSpell("王昊"));
@@ -152,6 +168,8 @@ public class FunctionTest
 
 		// testString();
 
-		testInteger();
+		// testInteger();
+		
+		testListRemove();
 	}
 }
