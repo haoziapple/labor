@@ -110,11 +110,26 @@ public class FunctionTest
 			return;
 		}
 	}
-	
+
 	public static void testString()
 	{
 		String t = new String("^01|0102\\");
 		System.out.println(t);
+	}
+
+	public static void testInteger()
+	{
+		Integer i1 = 127;
+		Integer i2 = 127;
+		System.out.println("i1 == i2: " + (i1 == i2));
+		Integer i3 = new Integer(127);
+		System.out.println("i1 == i3: " + (i1 == i3));
+		Integer i4 = 128;
+		Integer i5 = 128;
+		System.out.println("i4 == i5: " + (i4 == i5));
+		int i6 = 128;
+		int i7 = 128;
+		System.out.println("i6 == i7: " + (i6 == i7));
 	}
 
 	public static void main(String[] args)
@@ -134,7 +149,9 @@ public class FunctionTest
 
 		// String newString = String.format("%04d", 5);
 		// System.out.println(newString = newString + 1);
-		
-		testString();
+
+		// testString();
+
+		testInteger();
 	}
 }
