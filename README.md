@@ -1,3 +1,3 @@
 # labor
 a java source code generator
-based on frreemarker
+based on frreemarker engine
