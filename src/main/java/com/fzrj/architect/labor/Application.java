@@ -32,8 +32,8 @@ import com.fzrj.architect.labor.utils.ZipUtil;
 @Controller
 public class Application
 {
-	private static final String PATH = "/home/labor_generated";
-	// private static final String PATH = "F:\\myLaborProject";
+//	private static final String PATH = "/home/labor_generated";
+	 private static final String PATH = "F:\\myLaborProject";
 
 	private static final String STRATEGY = "ssm";
 
